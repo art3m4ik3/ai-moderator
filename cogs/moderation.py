@@ -7,7 +7,7 @@ from os import getenv
 class Moderation(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
-        self.admin_ids = getenv("ADMIN_IDS").split(",")
+        self.admin_ids = list(map(int, getenv("ADMIN_IDS").split(",")))
 
     @commands.Cog.listener()
     async def on_message(self, message: Message):
